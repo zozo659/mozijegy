@@ -62,5 +62,17 @@ namespace mozijegy
                 dataGrid.Items.Refresh();
             }
         }
+
+        private void vanhely(object sender, RoutedEventArgs e)
+        {
+            List<mozi> csakaholvanhely = new List<mozi>();
+            foreach (var mozi in mozifilmek)
+            {
+                if (mozi.Szabadhelyek > 0)
+                    csakaholvanhely.Add(mozi);
+            }
+            dataGrid.ItemsSource = csakaholvanhely;
+            dataGrid.Items.Refresh();
+        }
     }
 }

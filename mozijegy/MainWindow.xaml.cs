@@ -74,5 +74,17 @@ namespace mozijegy
             dataGrid.ItemsSource = csakaholvanhely;
             dataGrid.Items.Refresh();
         }
+
+        private void legnepszerubb(object sender, RoutedEventArgs e)
+        {
+            var leg = mozifilmek
+                .OrderBy(m => m.Szabadhelyek)
+                .FirstOrDefault();
+            if (leg != null)
+            {
+                dataGrid.ItemsSource = new List<mozi> { leg };
+                dataGrid.Items.Refresh();
+            }
+        }
     }
 }

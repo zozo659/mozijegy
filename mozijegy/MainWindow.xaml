@@ -21,6 +21,7 @@
             <Button Content="Adatok betöltése" Width="120" Click="adatokbetoltese"/>
             <Button Content="Foglalás" Width="120" Click="foglalas"/>
             <Button Content="Ahol van hely" Width="120" Click="vanhely"/>
+            <Button Content="Legnépszerűbb" Width="120" Click="legnepszerubb"/>
         </StackPanel>
     </Grid>
 </Window>

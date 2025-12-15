@@ -23,6 +23,7 @@
             <Button Content="Ahol van hely" Width="120" Click="vanhely"/>
             <Button Content="Legnépszerűbb" Width="120" Click="legnepszerubb"/>
             <Button Content="Átlagos szabad hely" Width="120" Click="atlaghely"/>
+            <Button Content="Csak 3d-s filmek" Width="120" Click="csak3d"/>
         </StackPanel>
     </Grid>
 </Window>

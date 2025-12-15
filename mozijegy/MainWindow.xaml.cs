@@ -98,5 +98,18 @@ namespace mozijegy
             double atlag = mozifilmek.Average(m => m.Szabadhelyek);
             MessageBox.Show($"Átlagos szabad hely: {atlag:0.0}");
         }
+
+        private void csak3d(object sender, RoutedEventArgs e)
+        {
+            List<mozi> csak3d = new List<mozi>();
+            foreach (var m in mozifilmek)
+            {
+                if (m._3D)
+                    csak3d.Add(m);
+            }
+
+            dataGrid.ItemsSource = csak3d;
+            dataGrid.Items.Refresh();
+        }
     }
 }

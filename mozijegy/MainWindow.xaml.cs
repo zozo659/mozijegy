@@ -86,5 +86,17 @@ namespace mozijegy
                 dataGrid.Items.Refresh();
             }
         }
+
+        private void a(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void atlaghely(object sender, RoutedEventArgs e)
+        {
+            if (mozifilmek.Count == 0) return;
+            double atlag = mozifilmek.Average(m => m.Szabadhelyek);
+            MessageBox.Show($"Átlagos szabad hely: {atlag:0.0}");
+        }
     }
 }

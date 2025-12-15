@@ -1,0 +1,25 @@
+﻿<Window x:Class="mozijegy.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:mozijegy"
+        mc:Ignorable="d"
+             Title="Mozi jegyfoglalás" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <Label Content="Mozi Jegyfoglaló rendszer" FontSize="20"
+               FontWeight="Bold"
+               HorizontalAlignment="Center"/>
+        <DataGrid x:Name="dataGrid" Grid.Row="1"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="5">
+            <Button Content="Adatok betöltése" Width="120" Click="adatokbetoltese"/>
+            <Button Content="Foglalás" Width="120" Click="foglalas"/>
+        </StackPanel>
+    </Grid>
+</Window>

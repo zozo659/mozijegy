@@ -5,25 +5,88 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:mozijegy"
         mc:Ignorable="d"
-             Title="Mozi jegyfoglalás" Height="450" Width="800">
-    <Grid>
+        Title="Mozi jegyfoglalás" Height="450" Width="800">
+    <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="100"/>
+            <!-- Új sor az űrlapnak -->
+            <RowDefinition Height="130"/>
         </Grid.RowDefinitions>
+
+        <!-- Cím -->
         <Label Content="Mozi Jegyfoglaló rendszer" FontSize="20"
                FontWeight="Bold"
                HorizontalAlignment="Center"/>
-        <DataGrid x:Name="dataGrid" Grid.Row="1"/>
+
+        <!-- Adat-rács -->
+        <DataGrid x:Name="dataGrid" Grid.Row="1" Margin="0,5,0,5"/>
+
+        <!-- Gombsor -->
         <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="5">
             <Button Content="Adatok betöltése" Width="120" Click="adatokbetoltese"/>
-            <Button Content="Foglalás" Width="120" Click="foglalas"/>
-            <Button Content="Ahol van hely" Width="120" Click="vanhely"/>
-            <Button Content="Legnépszerűbb" Width="120" Click="legnepszerubb"/>
-            <Button Content="Átlagos szabad hely" Width="120" Click="atlaghely"/>
-            <Button Content="Csak 3d-s filmek" Width="120" Click="csak3d"/>
+            <Button Content="Foglalás" Width="120" Margin="5,0,0,0" Click="foglalas"/>
+            <Button Content="Ahol van hely" Width="120" Margin="5,0,0,0" Click="vanhely"/>
+            <Button Content="Legnépszerűbb" Width="120" Margin="5,0,0,0" Click="legnepszerubb"/>
+            <Button Content="Átlagos szabad hely" Width="140" Margin="5,0,0,0" Click="atlaghely"/>
+            <Button Content="Csak 3d-s filmek" Width="120" Margin="5,0,0,0" Click="csak3d"/>
         </StackPanel>
+
+        <!-- (a régi, üres 4. sor maradhat, vagy kiveheted) -->
+        <Grid Grid.Row="3"/>
+
+        <!-- Új előadás hozzáadása űrlap -->
+        <GroupBox Grid.Row="4" Header="Új előadás hozzáadása" Margin="0,5,0,0">
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- 1. sor -->
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Film címe:" Margin="0,0,5,0"
+                           VerticalAlignment="Center"/>
+                <TextBox x:Name="txtFilmCim" Grid.Row="0" Grid.Column="1" Margin="0,0,15,3"/>
+
+                <TextBlock Grid.Row="0" Grid.Column="3" Text="Időpont:" Margin="0,0,5,0"
+                           VerticalAlignment="Center"/>
+                <!-- Egyszerű TextBox; ha akarsz, lecserélheted DatePicker + TextBox kombinációra -->
+                <TextBox x:Name="txtIdopont" Grid.Row="0" Grid.Column="4" Margin="0,0,0,3"
+                         ToolTip="Formátum pl.: 2025.12.15 10:30"/>
+
+                <!-- 2. sor -->
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Terem:" Margin="0,0,5,0"
+                           VerticalAlignment="Center"/>
+                <TextBox x:Name="txtTerem" Grid.Row="1" Grid.Column="1" Margin="0,0,15,3"/>
+
+                <TextBlock Grid.Row="1" Grid.Column="3" Text="Szabad helyek:" Margin="0,0,5,0"
+                           VerticalAlignment="Center"/>
+                <TextBox x:Name="txtSzabadHely" Grid.Row="1" Grid.Column="4" Margin="0,0,0,3"/>
+
+                <!-- 3. sor -->
+                <CheckBox x:Name="chk3D" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                          Content="3D-s vetítés" Margin="0,5,0,0"/>
+
+                <StackPanel Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Right" Margin="0,5,0,0">
+                    <Button Content="Hozzáadás" Width="90" Margin="0,0,8,0"
+                            Click="Hozzaadas_Click"/>
+                    <Button Content="Keresés" Width="90"
+                            Click="Kereses_Click"/>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
     </Grid>
 </Window>
